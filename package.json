@@ -1,0 +1,26 @@
+{
+  "name": "ethmarks-site",
+  "version": "1.0.0",
+  "description": "The landing page of ethmarks's personal website",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethmarks/site.git"
+  },
+  "author": "Ethan Marks <ethmarks.dev@gmail.com> (https://github.com/ethmarks)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ethmarks/site/issues"
+  },
+  "homepage": "https://github.com/ethmarks/site#readme",
+  "devDependencies": {
+    "astro": "^5.16.8",
+    "sharp": "^0.34.5"
+  }
+}
