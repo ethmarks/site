@@ -1,5 +1,5 @@
 ---
-const assetsURL = "https://common-ethmarks.vercel.app";
+const assetsURL = "https://site-ethmarks.vercel.app/common";
 
 const headerHTML = await fetch(`${assetsURL}/header-home.wc.html`).then((r) =>
     r.text(),
@@ -29,7 +29,21 @@ const sourceURL = "https://github.com/ethmarks/site";
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
 
-        <Fragment set:html={fontPreloadHTML} />
+        <link
+            rel="preload"
+            href={`${assetsURL}/Nunito-latin.woff2`}
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href={`${assetsURL}/Sen-latin.woff2`}
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+
         <link
             rel="icon"
             href={`${assetsURL}/ethmarks.ico`}
