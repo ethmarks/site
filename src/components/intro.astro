@@ -132,15 +132,14 @@ import spearmintPFP from "../assets/spearmint-pfp.webp";
 
     #intro {
         align-items: center;
-        margin-top: var(--main-margin-top);
         box-sizing: border-box;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
         margin-top: calc(var(--main-margin-top) + var(--intro-top-margin));
-        width: 100%;
 
         @media (max-width: 768px) {
+            margin-top: var(--main-margin-top);
             display: flex;
             flex-direction: column;
         }
@@ -155,6 +154,8 @@ import spearmintPFP from "../assets/spearmint-pfp.webp";
             padding-right: 2rem;
 
             @media (max-width: 768px) {
+                padding-right: 0;
+                justify-self: start;
                 margin-top: 1rem;
                 text-align: center;
             }
@@ -229,6 +230,7 @@ import spearmintPFP from "../assets/spearmint-pfp.webp";
             padding-left: 2rem;
 
             @media (max-width: 768px) {
+                padding-left: 0;
                 margin: 3rem 1rem 0;
                 display: flex;
             }
