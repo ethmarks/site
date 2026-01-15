@@ -1,0 +1,176 @@
+---
+import { Image } from "astro:assets";
+import spearmintPFP from "../assets/spearmint-pfp.webp";
+---
+
+<section id="intro">
+    <div id="text">
+        <span
+            id="greeting"
+            class="text-shimmer"
+            data-shimmer-inverse
+            data-shimmer-delay="200">Ahoy! I'm</span
+        >
+        <span id="name" class="text-shimmer">Ethan Marks</span>
+        <span
+            id="vocation"
+            class="text-shimmer"
+            data-shimmer-inverse
+            data-shimmer-delay="350"
+            data-shimmer-speed="35">Software Developer</span
+        >
+    </div>
+    <div id="pfp-container">
+        <Image
+            src={spearmintPFP}
+            alt="A faceted crystalline spearmint teal surface used as Ethan's profile picture"
+            style="background: #d6eddc; border-radius: 999px;"
+        />
+    </div>
+</section>
+
+<style>
+    :root {
+        --color-greeting: var(--color-text);
+        --color-name: var(--color-accent);
+        --color-vocation: var(--color-text-secondary);
+
+        --font-size-greeting: 2rem;
+        --font-size-name: 4rem;
+        --font-size-vocation: 1.8rem;
+
+        --intro-top-margin: clamp(2px, 5rem, 20vh);
+    }
+
+    #intro {
+        align-items: center;
+        margin-top: var(--main-margin-top);
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        margin-top: calc(var(--main-margin-top) + var(--intro-top-margin));
+        width: 100%;
+
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #text {
+            font-family: var(--font-secondary);
+            font-weight: var(--font-weight-bold);
+            display: flex;
+            flex-direction: column;
+            justify-self: end;
+            text-align: right;
+            padding-right: 2rem;
+
+            @media (max-width: 768px) {
+                margin-top: 1rem;
+                text-align: center;
+            }
+
+            #greeting {
+                color: var(--color-greeting);
+                font-size: var(--font-size-greeting);
+
+                .expand-char {
+                    margin-right: 0.17em;
+                    transform: perspective(200px) rotateY(-180deg) scale(1.1) !important;
+                }
+            }
+
+            #name {
+                color: var(--color-name);
+                font-size: var(--font-size-name);
+                line-height: 1;
+
+                .expand-char {
+                    margin-right: 0.12em;
+                    transform: perspective(200px) rotateY(15deg) scale(1.1) !important;
+                    text-shadow: 0 0 15px var(--color-accent-transparent-30);
+                }
+            }
+
+            #vocation {
+                color: var(--color-vocation);
+                font-size: var(--font-size-vocation);
+                line-height: 1;
+
+                .expand-char {
+                    margin-right: 0.15em;
+                    color: var(--color-accent-light);
+                }
+            }
+
+            .text-shimmer-word {
+                display: inline-block;
+                white-space: nowrap;
+                transition: margin-left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+                &:not(:first-child) {
+                    margin-left: 0.3em;
+
+                    &:has(.expand-char) {
+                        margin-left: 0.4em;
+                    }
+                }
+            }
+
+            .text-shimmer-char {
+                display: inline-block;
+                opacity: 0;
+                transform: translateY(-3px);
+                filter: blur(2px);
+                transition-property:
+                    opacity, transform, filter, margin-right, text-shadow, color;
+                transition-duration: 0.6s;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+                &.text-shimmer-char.in {
+                    opacity: 1;
+                    transform: translateY(0);
+                    filter: blur(0);
+                }
+            }
+        }
+
+        #pfp-container {
+            justify-content: flex-start;
+            padding-left: 2rem;
+
+            @media (max-width: 768px) {
+                margin: 3rem 1rem 0;
+                display: flex;
+            }
+
+            img#pfp {
+                width: 256px;
+                max-width: 100%;
+                height: auto;
+                cursor: pointer;
+
+                @media (max-width: 768px) {
+                    flex-shrink: 1;
+                }
+
+                @media (prefers-reduced-motion: no-preference) {
+                    opacity: 0;
+                    transform: scale(0.3) rotate(180deg);
+                    filter: blur(20px);
+                    animation: pfpEntrance 1.2s cubic-bezier(0.4, 0, 0.2, 1)
+                        0.1s forwards;
+                }
+            }
+        }
+    }
+
+    @keyframes pfpEntrance {
+        to {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            filter: blur(0);
+        }
+    }
+</style>
