@@ -7,6 +7,9 @@ const headerHTML = await fetch(`${assetsURL}/header-home.wc.html`).then((r) =>
 const footerHTML = await fetch(`${assetsURL}/footer.wc.html`).then((r) =>
     r.text(),
 );
+const fontPreloadHTML = await fetch(`${assetsURL}/fonts.html`).then((r) =>
+    r.text(),
+);
 
 const title = "Ethan Marks";
 const description = "The landing page of ethmarks's personal website";
@@ -26,21 +29,7 @@ const sourceURL = "https://github.com/ethmarks/site";
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
 
-        <link
-            rel="preload"
-            href={`${assetsURL}/Nunito-latin.woff2`}
-            as="font"
-            type="font/woff2"
-            crossorigin
-        />
-        <link
-            rel="preload"
-            href={`${assetsURL}/Sen-latin.woff2`}
-            as="font"
-            type="font/woff2"
-            crossorigin
-        />
-
+        <Fragment set:html={fontPreloadHTML} />
         <link
             rel="icon"
             href={`${assetsURL}/ethmarks.ico`}
