@@ -6,6 +6,186 @@ import Intro from "../components/intro.astro";
 <Layout>
     <Intro />
     <main>
-        <p>Ahoy, world!</p>
+        <section id="about" class="staggered">
+            <h2>Who I Am</h2>
+            <p>
+                I'm Ethan Marks. I'm a 15-year-old software developer. My work
+                lives at the intersection of code, design, and curiosity. This
+                is my corner of the web.
+            </p>
+            <a href="https://ethmarks.github.io/about/" class="link-capsule"
+                >More about me →</a
+            >
+        </section>
+        <section id="build" class="staggered">
+            <h2>What I Build</h2>
+            <p>
+                I enjoy writing software and automating things with code. I've
+                been programming for the majority of my life, and I spend most
+                of my free time working on my various projects, including the
+                website you're on right now.
+            </p>
+            <a
+                href="https://ethmarks.github.io/tags/projects/"
+                class="link-capsule">All projects →</a
+            >
+        </section>
+        <section id="write" class="staggered">
+            <h2>What I Write</h2>
+            <p>
+                I love to write, and I publish some of my more coherent pieces
+                here on my personal website as posts. I've written technical
+                articles, word collections, poems, short stories, and more.
+            </p>
+            <a href="https://ethmarks.github.io/posts/" class="link-capsule"
+                >All posts →</a
+            >
+        </section>
+        <section id="contact" class="staggered">
+            <h2>Contact</h2>
+            <p>
+                Feel free to reach out! I'm always happy to chat. Whether you
+                want to discuss a project, share an interesting idea, or just
+                say hello, I'd love to hear from you.
+            </p>
+            <a href="mailto:ethmarks.dev@gmail.com" class="link-capsule"
+                >Email me →</a
+            >
+        </section>
     </main>
 </Layout>
+
+<style>
+    :root {
+        --section-margin-top: clamp(3rem, 8vw, 5rem);
+        --subsection-margin-top: var(--spacing-lg);
+        --section-padding: var(--spacing-xl);
+        --section-padding-mobile: var(--spacing-lg);
+        --section-border-radius: var(--radius-xl);
+        --section-entrance-offset: 35px;
+    }
+
+    main {
+        margin-top: 0;
+        margin-bottom: var(--spacing-lg);
+
+        @media (max-width: 768px) {
+            max-width: 92vw;
+        }
+    }
+
+    section {
+        margin-top: var(--section-margin-top);
+        padding: var(--section-padding);
+        border-radius: var(--section-border-radius);
+        transition: var(--transition-transform-shadow);
+
+        @media (prefers-reduced-motion: no-preference) {
+            opacity: 0;
+
+            @media (min-height: 1200px) {
+                &:nth-child(even) {
+                    transform: translateX(
+                        calc(var(--section-entrance-offset) * -1)
+                    );
+                }
+                &:nth-child(odd) {
+                    transform: translateX(var(--section-entrance-offset));
+                }
+            }
+
+            @media (max-height: 1200px) {
+                transform: translateY(var(--section-entrance-offset));
+            }
+
+            animation: sectionEntrance 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+                forwards;
+            animation-delay: calc(0.2s + var(--child-animation-delay));
+        }
+
+        @media (max-width: 768px) {
+            padding: var(--section-padding-mobile);
+            border-radius: var(--radius-lg);
+        }
+
+        h2 {
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text);
+        }
+
+        p {
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        .link-capsule {
+            display: inline-block;
+            margin-top: var(--spacing-sm);
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--color-accent-transparent-10);
+            border: var(--border-accent);
+            border-radius: var(--radius-round);
+            transition: var(--transition-default);
+            font-weight: var(--font-weight-normal);
+            text-decoration: none;
+
+            &:hover {
+                background: var(--color-accent-transparent-20);
+                transform: translateY(-1px);
+                text-decoration: none;
+            }
+        }
+    }
+
+    #about {
+        background: linear-gradient(
+            135deg,
+            var(--color-panel),
+            color-mix(in srgb, var(--color-panel) 8%, var(--color-background))
+        );
+        border: var(--border-standard-2px);
+    }
+
+    #build {
+        background: linear-gradient(
+            135deg,
+            color-mix(
+                in srgb,
+                var(--color-accent) 15%,
+                var(--color-background)
+            ),
+            color-mix(in srgb, var(--color-panel) 9%, var(--color-background))
+        );
+        border: var(--border-accent-t-2px);
+    }
+
+    #write {
+        background: linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--color-text) 5%, var(--color-background)),
+            color-mix(in srgb, var(--color-panel) 85%, var(--color-background))
+        );
+        border: var(--border-light-2px);
+    }
+
+    #contact {
+        background: linear-gradient(
+            -45deg,
+            color-mix(
+                in srgb,
+                var(--color-accent) 12%,
+                var(--color-background)
+            ),
+            color-mix(in srgb, var(--color-panel) 50%, var(--color-background))
+        );
+        border: var(--border-accent-t-2px);
+    }
+
+    @keyframes sectionEntrance {
+        to {
+            opacity: 1;
+            transform: translate(0);
+        }
+    }
+</style>
