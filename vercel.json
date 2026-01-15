@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/common/:path",
+      "destination": "https://common-ethmarks.vercel.app/:path"
+    }
+  ]
+}
