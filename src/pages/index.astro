@@ -1,6 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Intro from "../components/intro.astro";
+import Card from "../components/card.astro";
+
+import thessaPic from "../assets/thessa.webp";
+import asciiGlobePic from "../assets/ascii-globe.webp";
+import colourlessTransformerPic from "../assets/colourlesstransformer.webp";
 ---
 
 <Layout>
@@ -29,6 +34,33 @@ import Intro from "../components/intro.astro";
                 href="https://ethmarks.github.io/tags/projects/"
                 class="link-capsule">All projects →</a
             >
+            <div id="projects" class="cards">
+                <h3>Featured Projects</h3>
+                <div class="cards-grid">
+                    <Card
+                        image={asciiGlobePic}
+                        url="https://ethmarks.github.io/posts/asciiglobe/"
+                        alt="A spinning globe rendered with text"
+                        title="ASCII-Globe"
+                        desc="A text-based cartographic rendering engine that uses NASA satellite data"
+                        transparent="true"
+                    />
+                    <Card
+                        image={thessaPic}
+                        url="https://ethmarks.github.io/posts/thessa/"
+                        alt="A screenshot of the Thessa interface"
+                        title="Thessa"
+                        desc="An AI thesaurus built with Sveltekit powered by Cerebras"
+                    />
+                    <Card
+                        image={colourlessTransformerPic}
+                        url="https://ethmarks.github.io/posts/colourlesstransformer/"
+                        alt="A highly stylized watercolour-style image of a concrete walkway runs alongside a dense hedge of flowering bushes, all under a sleek red pergola."
+                        title="ColourlessTransformer"
+                        desc="A Streamlit interface for PaintTransformer, a neural network that approximates images using paint strokes"
+                    />
+                </div>
+            </div>
         </section>
         <section id="write" class="staggered">
             <h2>What I Write</h2>
@@ -180,6 +212,27 @@ import Intro from "../components/intro.astro";
             color-mix(in srgb, var(--color-panel) 50%, var(--color-background))
         );
         border: var(--border-accent-t-2px);
+    }
+
+    .cards {
+        margin-top: var(--subsection-margin-top);
+
+        h3 {
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text);
+            font-size: var(--font-size-h4);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--card-gap);
+
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+        }
     }
 
     @keyframes sectionEntrance {
