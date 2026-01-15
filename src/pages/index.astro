@@ -6,6 +6,9 @@ import Card from "../components/card.astro";
 import thessaPic from "../assets/thessa.webp";
 import asciiGlobePic from "../assets/ascii-globe.webp";
 import colourlessTransformerPic from "../assets/colourlesstransformer.webp";
+import watermanPic from "../assets/waterman.webp";
+import liquidGlassPic from "../assets/liquidglass.webp";
+import mercatorPic from "../assets/mercator.webp";
 ---
 
 <Layout>
@@ -69,6 +72,34 @@ import colourlessTransformerPic from "../assets/colourlesstransformer.webp";
                 here on my personal website as posts. I've written technical
                 articles, word collections, poems, short stories, and more.
             </p>
+
+            <div id="posts" class="cards">
+                <h3>Featured Posts</h3>
+                <div class="cards-grid">
+                    <Card
+                        image={watermanPic}
+                        url="https://ethmarks.github.io/posts/waterman/"
+                        alt="An unusual world map in a butterfly shape, showing the continents arranged in eight connected lobes"
+                        title="The Waterman Butterfly"
+                        desc="An exploration of the Waterman Butterfly map projection"
+                    />
+                    <Card
+                        image={mercatorPic}
+                        url="https://ethmarks.github.io/posts/mercator/"
+                        alt="Gerardus Mercator's original 1569 world map"
+                        title="Mercator's World Map was useless"
+                        desc="An essay about the many errors in Gerardus Mercator's 1569 world map"
+                    />
+                    <Card
+                        image={liquidGlassPic}
+                        url="https://ethmarks.github.io/posts/liquidglass/"
+                        alt="Various colourful abstract Liquid Glass blobs, using glassmorphic frosted glass transparency and resembling real glass"
+                        title="Thoughts on Liquid Glass"
+                        desc="My thoughts on Apple's new Liquid Glass design"
+                    />
+                </div>
+            </div>
+
             <a href="https://ethmarks.github.io/posts/" class="link-capsule"
                 >All posts →</a
             >
