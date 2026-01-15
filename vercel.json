@@ -1,13 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/common",
-      "destination": "/common/",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
       "source": "/common/",
