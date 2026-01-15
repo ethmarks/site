@@ -1,0 +1,46 @@
+---
+const assetsURL = "https://common-ethmarks.vercel.app";
+
+const headerHTML = await fetch(`${assetsURL}/header-home.wc.html`).then((r) =>
+    r.text(),
+);
+const footerHTML = await fetch(`${assetsURL}/footer.wc.html`).then((r) =>
+    r.text(),
+);
+
+const title = "Ethan Marks";
+const description = "The landing page of ethmarks's personal website";
+const sourceURL = "https://github.com/ethmarks/site";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{title}</title>
+
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+
+        <link
+            rel="icon"
+            href={`${assetsURL}/ethmarks.ico`}
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href={`${assetsURL}/ethmarks.css`} />
+        <script src={`${assetsURL}/ethmarks.wc.js`} is:inline defer></script>
+    </head>
+    <body>
+        <eth-header active="home">
+            <Fragment set:html={headerHTML} />
+        </eth-header>
+        <slot />
+        <eth-footer source={sourceURL}>
+            <Fragment set:html={footerHTML} />
+        </eth-footer>
+    </body>
+</html>
