@@ -36,10 +36,15 @@ const sourceURL = "https://github.com/ethmarks/site";
             type="image/x-icon"
         />
         <link rel="stylesheet" href={`${assetsURL}/ethmarks.css`} />
+        <script src={`${assetsURL}/ethmarks.wc.js`} is:inline defer></script>
     </head>
     <body>
-        <Fragment set:html={headerHTML} />
+        <eth-header active="home">
+            <Fragment set:html={headerHTML} />
+        </eth-header>
         <slot />
-        <Fragment set:html={footerHTML} />
+        <eth-footer source={sourceURL}>
+            <Fragment set:html={footerHTML} />
+        </eth-footer>
     </body>
 </html>
