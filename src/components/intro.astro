@@ -91,9 +91,9 @@ import spearmintPFP from "../assets/spearmint-pfp.webp";
             chars.forEach((char, index) => {
                 setTimeout(() => {
                     if (charExpanded) {
-                        char.classList.remove("expand-char");
-                    } else {
                         char.classList.add("expand-char");
+                    } else {
+                        char.classList.remove("expand-char");
                     }
                 }, index * 15);
             });
