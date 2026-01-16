@@ -18,7 +18,7 @@
     },
     {
       "source": "/about/:path*",
-      "destination": "https://about-ethmarks.vercel.app/:path*"
+      "destination": "https://about-ethmarks.vercel.app/about/:path*"
     }
   ]
 }
