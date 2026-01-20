@@ -1,6 +1,7 @@
 {
   "name": "ethmarks-site",
   "version": "1.0.0",
+  "private": true,
   "description": "The landing page of ethmarks's personal website",
   "type": "module",
   "scripts": {
