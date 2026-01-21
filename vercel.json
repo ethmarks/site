@@ -19,6 +19,10 @@
     {
       "source": "/about/:path*",
       "destination": "https://about-ethmarks.vercel.app/about/:path*"
+    },
+    {
+      "source": "/posts/:path*",
+      "destination": "https://posts-ethmarks.vercel.app/posts/:path*"
     }
   ]
 }
