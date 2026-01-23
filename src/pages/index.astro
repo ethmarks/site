@@ -120,6 +120,8 @@ import mercatorPic from "../assets/mercator.webp";
 
 <style>
     :root {
+        --main-width: 1000px;
+
         --section-margin-top: clamp(3rem, 8vw, 5rem);
         --subsection-margin-top: var(--spacing-lg);
         --section-padding: var(--spacing-xl);
@@ -131,10 +133,6 @@ import mercatorPic from "../assets/mercator.webp";
     main {
         margin-top: 0;
         margin-bottom: var(--spacing-lg);
-
-        @media (max-width: 768px) {
-            max-width: 92vw;
-        }
     }
 
     section {
