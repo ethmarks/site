@@ -28,6 +28,10 @@
     {
       "source": "/blips/:path*",
       "destination": "https://blips-ethmarks.vercel.app/blips/:path*"
+    },
+    {
+      "source": "/ink/:path*",
+      "destination": "https://ink-ethmarks.vercel.app/ink/:path*"
     }
   ]
 }
