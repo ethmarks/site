@@ -24,6 +24,10 @@
     {
       "source": "/posts/:path*",
       "destination": "https://posts-ethmarks.vercel.app/posts/:path*"
+    },
+    {
+      "source": "/blips/:path*",
+      "destination": "https://blips-ethmarks.vercel.app/blips/:path*"
     }
   ]
 }
