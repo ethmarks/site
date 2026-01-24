@@ -1,21 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/common",
-      "destination": "/common/",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
-      "source": "/common/",
-      "destination": "https://common-ethmarks.vercel.app/"
-    },
-    {
       "source": "/common/:path*",
-      "destination": "https://common-ethmarks.vercel.app/:path*"
+      "destination": "https://common-ethmarks.vercel.app/common/:path*"
     },
     {
       "source": "/about/:path*",
