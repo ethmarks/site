@@ -1,4 +1,6 @@
 ---
+import Analytics from "@vercel/analytics/astro";
+
 const assetsURL = "https://site-ethmarks.vercel.app/common";
 
 const headerHTML = await fetch(`${assetsURL}/header-home.wc.html`).then((r) =>
@@ -51,6 +53,7 @@ const sourceURL = "https://github.com/ethmarks/site";
         />
         <link rel="stylesheet" href={`${assetsURL}/ethmarks.css`} />
         <script src={`${assetsURL}/ethmarks.wc.js`} is:inline defer></script>
+        <Analytics />
     </head>
     <body>
         <eth-header active="home">
