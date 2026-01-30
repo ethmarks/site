@@ -7,12 +7,11 @@ const headerHTML = await fetch(`${assetsURL}/header-home.wc.html`).then((r) =>
 const footerHTML = await fetch(`${assetsURL}/footer.wc.html`).then((r) =>
     r.text(),
 );
-const fontPreloadHTML = await fetch(`${assetsURL}/fonts.html`).then((r) =>
-    r.text(),
-);
 
+const canonUrl = "https://site-ethmarks.vercel.app";
 const title = "Ethan Marks";
-const description = "The landing page of ethmarks's personal website";
+const desc = "The landing page of ethmarks's personal website";
+const img = "/ethmarks_site.webp";
 const sourceURL = "https://github.com/ethmarks/site";
 ---
 
@@ -22,12 +21,20 @@ const sourceURL = "https://github.com/ethmarks/site";
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <title>{title}</title>
+        <meta name="description" content={desc} />
 
-        <meta name="generator" content={Astro.generator} />
-        <meta name="description" content={description} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
+        <link rel="canonical" href={canonUrl} />
         <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={desc} />
+        <meta property="og:image" content={canonUrl + img} />
+        <meta property="og:url" content={canonUrl} />
+        <meta property="og:locale" content="en_US" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={desc} />
+        <meta name="twitter:image" content={canonUrl + img} />
 
         <link
             rel="preload"
