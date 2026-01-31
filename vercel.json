@@ -1,13 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/projects",
-      "destination": "/projects/",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
       "source": "/common/:path*",
@@ -32,10 +25,6 @@
     {
       "source": "/projects/:path*",
       "destination": "https://projects-ethmarks.vercel.app/projects/:path*"
-    },
-    {
-      "source": "/projects/",
-      "destination": "https://projects-ethmarks.vercel.app/projects/"
     }
   ]
 }
