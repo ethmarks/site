@@ -4,7 +4,8 @@
   "redirects": [
     {
       "source": "/projects",
-      "destination": "/projects/"
+      "destination": "/projects/",
+      "permanent": true
     }
   ],
   "rewrites": [
