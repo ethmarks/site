@@ -1,6 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/projects",
+      "destination": "/projects/"
+    }
+  ],
   "rewrites": [
     {
       "source": "/common/:path*",
