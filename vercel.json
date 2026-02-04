@@ -15,6 +15,10 @@
       "destination": "https://posts-ethmarks.vercel.app/posts/:path*"
     },
     {
+      "source": "/blips",
+      "destination": "https://blips--fresh-rewrite.ethmarks.deno.net/blips"
+    },
+    {
       "source": "/blips/:path*",
       "destination": "https://blips--fresh-rewrite.ethmarks.deno.net/blips/:path*"
     },
