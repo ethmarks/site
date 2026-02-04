@@ -16,7 +16,7 @@
     },
     {
       "source": "/blips/:path*",
-      "destination": "https://blips-ethmarks.vercel.app/blips/:path*"
+      "destination": "https://blips--fresh-rewrite.ethmarks.deno.net/blips/:path*"
     },
     {
       "source": "/ink/:path*",
