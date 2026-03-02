@@ -117,7 +117,7 @@ import spearmintPFP from "../assets/spearmint-pfp.webp";
     });
 </script>
 
-<style>
+<style lang="scss">
     :root {
         --color-greeting: var(--color-text);
         --color-name: var(--color-accent);
@@ -143,116 +143,69 @@ import spearmintPFP from "../assets/spearmint-pfp.webp";
             display: flex;
             flex-direction: column;
         }
+    }
 
-        #text {
-            font-family: var(--font-secondary);
-            font-weight: var(--font-weight-bold);
+    #text {
+        font-family: var(--font-secondary);
+        font-weight: var(--font-weight-bold);
+        display: flex;
+        flex-direction: column;
+        justify-self: end;
+        text-align: right;
+        padding-right: 2rem;
+
+        @media (max-width: 768px) {
+            padding-right: 0;
+            justify-self: start;
+            margin-top: 1rem;
+            text-align: center;
+        }
+    }
+
+    #greeting {
+        color: var(--color-greeting);
+        font-size: var(--font-size-greeting);
+    }
+
+    #name {
+        color: var(--color-name);
+        font-size: var(--font-size-name);
+        line-height: 1;
+    }
+
+    #vocation {
+        color: var(--color-vocation);
+        font-size: var(--font-size-vocation);
+        line-height: 1;
+    }
+
+    #pfp-container {
+        justify-content: flex-start;
+        padding-left: 2rem;
+
+        @media (max-width: 768px) {
+            padding-left: 0;
+            margin: 3rem 1rem 0;
             display: flex;
-            flex-direction: column;
-            justify-self: end;
-            text-align: right;
-            padding-right: 2rem;
+        }
+    }
 
-            @media (max-width: 768px) {
-                padding-right: 0;
-                justify-self: start;
-                margin-top: 1rem;
-                text-align: center;
-            }
+    img#pfp {
+        width: 256px;
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
 
-            #greeting {
-                color: var(--color-greeting);
-                font-size: var(--font-size-greeting);
-
-                .expand-char {
-                    margin-right: 0.17em;
-                    transform: perspective(200px) rotateY(-180deg) scale(1.1) !important;
-                }
-            }
-
-            #name {
-                color: var(--color-name);
-                font-size: var(--font-size-name);
-                line-height: 1;
-
-                .expand-char {
-                    margin-right: 0.12em;
-                    transform: perspective(200px) rotateY(15deg) scale(1.1) !important;
-                    text-shadow: 0 0 15px var(--color-accent-transparent-30);
-                }
-            }
-
-            #vocation {
-                color: var(--color-vocation);
-                font-size: var(--font-size-vocation);
-                line-height: 1;
-
-                .expand-char {
-                    margin-right: 0.15em;
-                    color: var(--color-accent-light);
-                }
-            }
-
-            .text-shimmer-word {
-                display: inline-block;
-                white-space: nowrap;
-                transition: margin-left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-
-                &:not(:first-child) {
-                    margin-left: 0.3em;
-
-                    &:has(.expand-char) {
-                        margin-left: 0.4em;
-                    }
-                }
-            }
-
-            .text-shimmer-char {
-                display: inline-block;
-                opacity: 0;
-                transform: translateY(-3px);
-                filter: blur(2px);
-                transition-property:
-                    opacity, transform, filter, margin-right, text-shadow, color;
-                transition-duration: 0.6s;
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-                &.text-shimmer-char.in {
-                    opacity: 1;
-                    transform: translateY(0);
-                    filter: blur(0);
-                }
-            }
+        @media (max-width: 768px) {
+            flex-shrink: 1;
         }
 
-        #pfp-container {
-            justify-content: flex-start;
-            padding-left: 2rem;
-
-            @media (max-width: 768px) {
-                padding-left: 0;
-                margin: 3rem 1rem 0;
-                display: flex;
-            }
-
-            img#pfp {
-                width: 256px;
-                max-width: 100%;
-                height: auto;
-                cursor: pointer;
-
-                @media (max-width: 768px) {
-                    flex-shrink: 1;
-                }
-
-                @media (prefers-reduced-motion: no-preference) {
-                    opacity: 0;
-                    transform: scale(0.3) rotate(180deg);
-                    filter: blur(20px);
-                    animation: pfpEntrance 1.2s cubic-bezier(0.4, 0, 0.2, 1)
-                        0.1s forwards;
-                }
-            }
+        @media (prefers-reduced-motion: no-preference) {
+            opacity: 0;
+            transform: scale(0.3) rotate(180deg);
+            filter: blur(20px);
+            animation: pfpEntrance 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s
+                forwards;
         }
     }
 
@@ -262,5 +215,54 @@ import spearmintPFP from "../assets/spearmint-pfp.webp";
             transform: scale(1) rotate(0deg);
             filter: blur(0);
         }
+    }
+</style>
+
+<style is:global lang="scss">
+    .text-shimmer-word {
+        display: inline-block;
+        white-space: nowrap;
+        transition: margin-left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:not(:first-child) {
+            margin-left: 0.3em;
+
+            &:has(.expand-char) {
+                margin-left: 0.4em;
+            }
+        }
+    }
+
+    .text-shimmer-char {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(-3px);
+        filter: blur(2px);
+        transition-property:
+            opacity, transform, filter, margin-right, text-shadow, color;
+        transition-duration: 0.6s;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+        &.text-shimmer-char.in {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+    }
+
+    #vocation .expand-char {
+        margin-right: 0.15em;
+        color: var(--color-accent-light);
+    }
+
+    #name .expand-char {
+        margin-right: 0.12em;
+        transform: perspective(200px) rotateY(15deg) scale(1.1) !important;
+        text-shadow: 0 0 15px var(--color-accent-transparent-30);
+    }
+
+    #greeting .expand-char {
+        margin-right: 0.17em;
+        transform: perspective(200px) rotateY(-180deg) scale(1.1) !important;
     }
 </style>
