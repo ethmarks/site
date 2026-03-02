@@ -113,13 +113,18 @@ if (image.fsPath && !transparent) {
             &:hover {
                 text-decoration: none;
 
-                .card-img-wrapper {
-                    clip-path: inset(-16px round var(--radius-lg));
+                @media (pointer: fine) {
+                    .card-img-wrapper {
+                        clip-path: inset(-16px round var(--radius-lg));
+                    }
+
+                    .card-image {
+                        transform: scale(1.12) translateY(-8px);
+                        border-radius: var(--radius-lg);
+                    }
                 }
 
                 .card-image {
-                    transform: scale(1.12) translateY(-8px);
-                    border-radius: var(--radius-lg);
                     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
                 }
 
