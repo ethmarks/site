@@ -46,22 +46,16 @@ if (image.fsPath && !transparent) {
             border 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
             box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         box-shadow: var(--shadow-standard);
-        position: relative;
-        z-index: 0;
 
         &:hover {
             transform: translateY(-3px) scale(0.99);
             box-shadow: var(--shadow-standard-hover);
             border-color: var(--color-accent-transparent-30);
-            z-index: 1;
         }
 
         .card-link {
-            display: block;
             color: var(--color-text);
             text-decoration: none;
-            height: 100%;
-            box-sizing: border-box;
 
             .card-img-wrapper {
                 width: 100%;
