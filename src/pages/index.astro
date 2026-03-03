@@ -148,6 +148,43 @@ import mercatorPic from "../assets/mercator.webp";
         --section-padding-mobile: var(--spacing-lg);
         --section-border-radius: var(--radius-xl);
         --section-entrance-offset: 35px;
+
+        --about-bg-start: color-mix(in srgb, var(--color-panel), transparent);
+        --about-bg-end: color-mix(
+            in srgb,
+            var(--color-panel) 8%,
+            var(--color-background)
+        );
+        --build-bg-start: color-mix(
+            in srgb,
+            var(--color-accent) 15%,
+            var(--color-background)
+        );
+        --build-bg-end: color-mix(
+            in srgb,
+            var(--color-panel) 9%,
+            var(--color-background)
+        );
+        --write-bg-start: color-mix(
+            in srgb,
+            var(--color-text) 5%,
+            var(--color-background)
+        );
+        --write-bg-end: color-mix(
+            in srgb,
+            var(--color-panel) 85%,
+            var(--color-background)
+        );
+        --contact-bg-start: color-mix(
+            in srgb,
+            var(--color-accent) 12%,
+            var(--color-background)
+        );
+        --contact-bg-end: color-mix(
+            in srgb,
+            var(--color-panel) 50%,
+            var(--color-background)
+        );
     }
 
     main {
@@ -239,8 +276,8 @@ import mercatorPic from "../assets/mercator.webp";
     #about {
         background: linear-gradient(
             135deg,
-            var(--color-panel),
-            color-mix(in srgb, var(--color-panel) 8%, var(--color-background))
+            var(--about-bg-start),
+            var(--about-bg-end)
         );
         border: var(--border-standard-2px);
     }
@@ -248,12 +285,8 @@ import mercatorPic from "../assets/mercator.webp";
     #build {
         background: linear-gradient(
             135deg,
-            color-mix(
-                in srgb,
-                var(--color-accent) 15%,
-                var(--color-background)
-            ),
-            color-mix(in srgb, var(--color-panel) 9%, var(--color-background))
+            var(--build-bg-start),
+            var(--build-bg-end)
         );
         border: var(--border-accent-t-2px);
     }
@@ -261,8 +294,8 @@ import mercatorPic from "../assets/mercator.webp";
     #write {
         background: linear-gradient(
             135deg,
-            color-mix(in srgb, var(--color-text) 5%, var(--color-background)),
-            color-mix(in srgb, var(--color-panel) 85%, var(--color-background))
+            var(--write-bg-start),
+            var(--write-bg-end)
         );
         border: var(--border-light-2px);
     }
@@ -270,12 +303,8 @@ import mercatorPic from "../assets/mercator.webp";
     #contact {
         background: linear-gradient(
             -45deg,
-            color-mix(
-                in srgb,
-                var(--color-accent) 12%,
-                var(--color-background)
-            ),
-            color-mix(in srgb, var(--color-panel) 50%, var(--color-background))
+            var(--contact-bg-start),
+            var(--contact-bg-end)
         );
         border: var(--border-accent-t-2px);
     }
