@@ -23,7 +23,8 @@ import mercatorPic from "../assets/mercator.webp";
             </p>
             <a
                 href="https://site-ethmarks.vercel.app/about"
-                class="link-capsule">More about me →</a
+                class="link-capsule"
+                >More about me <span class="capsule-arrow">-&gt;</span></a
             >
         </section>
         <section id="build" class="staggered">
@@ -63,7 +64,8 @@ import mercatorPic from "../assets/mercator.webp";
             </div>
             <a
                 href="https://site-ethmarks.vercel.app/projects/"
-                class="link-capsule">All projects →</a
+                class="link-capsule"
+                >All projects <span class="capsule-arrow">-&gt;</span></a
             >
         </section>
         <section id="write" class="staggered">
@@ -105,7 +107,8 @@ import mercatorPic from "../assets/mercator.webp";
 
             <a
                 href="https://site-ethmarks.vercel.app/posts"
-                class="link-capsule">All posts →</a
+                class="link-capsule"
+                >All posts <span class="capsule-arrow">-&gt;</span></a
             >
         </section>
         <section id="contact" class="staggered">
@@ -116,7 +119,7 @@ import mercatorPic from "../assets/mercator.webp";
                 say hello, I'd love to hear from you.
             </p>
             <a href="mailto:ethmarks.dev@gmail.com" class="link-capsule"
-                >Email me →</a
+                >Email me <span class="capsule-arrow">-&gt;</span></a
             >
         </section>
     </main>
@@ -212,6 +215,10 @@ import mercatorPic from "../assets/mercator.webp";
                 background: var(--color-accent-transparent-20);
                 transform: translateY(-1px);
                 text-decoration: none;
+            }
+
+            span {
+                font-family: var(--font-monospace);
             }
         }
     }
