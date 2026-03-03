@@ -53,6 +53,25 @@ if (image.fsPath && !transparent) {
             border-radius: var(--card-img-radius);
             clip-path: inset(-1px round var(--card-img-radius));
             transition: clip-path 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+
+            @media (max-width: 768px) {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 5px;
+                    background: linear-gradient(
+                        to bottom,
+                        transparent,
+                        var(--color-card)
+                    );
+                    z-index: 2;
+                    pointer-events: none;
+                }
+            }
         }
 
         .card-image {
