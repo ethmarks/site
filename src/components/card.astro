@@ -162,6 +162,14 @@ if (image.fsPath && !transparent) {
         updateActiveCard();
         window.addEventListener("scroll", updateActiveCard);
         window.addEventListener("resize", updateActiveCard);
+
+        document.querySelectorAll(".card").forEach((card) => {
+            card.addEventListener("click", () => {
+                document.querySelectorAll(".card").forEach((c) => {
+                    c.classList.remove("centeredInView");
+                });
+            });
+        });
     }
 
     initCardScroll();
