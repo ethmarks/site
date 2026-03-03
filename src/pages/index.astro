@@ -143,6 +143,8 @@ import mercatorPic from "../assets/mercator.webp";
         --main-width: 1000px;
 
         --section-margin-top: clamp(3rem, 8vw, 5rem);
+        --section-margin-sides: 0;
+        --section-margin-sides-mobile: var(--spacing-sm);
         --subsection-margin-top: var(--spacing-lg);
         --section-padding: var(--spacing-xl);
         --section-padding-mobile: var(--spacing-lg);
@@ -193,7 +195,7 @@ import mercatorPic from "../assets/mercator.webp";
     }
 
     section {
-        margin-top: var(--section-margin-top);
+        margin: var(--section-margin-top) var(--section-margin-sides) 0;
         padding: var(--section-padding);
         border-radius: var(--section-border-radius);
         transition: var(--transition-transform-shadow);
@@ -222,7 +224,8 @@ import mercatorPic from "../assets/mercator.webp";
         }
 
         @media (max-width: 768px) {
-            padding: var(--section-padding-mobile);
+            --section-padding: var(--section-padding-mobile);
+            --section-margin-sides: var(--section-margin-sides-mobile);
             border-radius: var(--radius-lg);
         }
 
