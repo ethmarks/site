@@ -2,7 +2,7 @@
 import sharp from "sharp";
 import { Image } from "astro:assets";
 
-const { image, url, alt, title, desc, transparent } = Astro.props;
+const { image, url, alt, title, desc, transparent, quality } = Astro.props;
 
 let dominantColor = "rgba(0,0,0,0)";
 
@@ -20,6 +20,8 @@ if (image.fsPath && !transparent) {
             alt={alt}
             style={`background: ${dominantColor}`}
             class="card-image"
+            width="550"
+            quality={quality}
         />
     </div>
     <div class="card-text">

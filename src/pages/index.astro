@@ -3,12 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import Intro from "../components/intro.astro";
 import Card from "../components/card.astro";
 
-import thessaPic from "../assets/thessa.webp";
+// import the high-quality source images
+import thessaPic from "../assets/thessa.png";
 import fphfPic from "../assets/fphf.webp";
 import colourlessTransformerPic from "../assets/colourlesstransformer.webp";
-import watermanPic from "../assets/waterman.webp";
+import watermanPic from "../assets/waterman.jpg";
 import measurementPic from "../assets/measurement.webp";
-import mercatorPic from "../assets/mercator.webp";
+import mercatorPic from "../assets/mercator.png";
 ---
 
 <Layout>
@@ -51,6 +52,7 @@ import mercatorPic from "../assets/mercator.webp";
                         alt="A screenshot of the Thessa interface"
                         title="Thessa"
                         desc="An AI thesaurus built with Sveltekit powered by Cerebras"
+                        quality="max"
                     />
                     <Card
                         image={fphfPic}
@@ -59,6 +61,7 @@ import mercatorPic from "../assets/mercator.webp";
                         title="Fixed-Point Hash Finder"
                         desc="A tool that searches a cryptographic hash space for strings that contain part of their own SHA-256 hash"
                         transparent="true"
+                        quality="max"
                     />
                 </div>
             </div>
@@ -87,6 +90,7 @@ import mercatorPic from "../assets/mercator.webp";
                         alt="An unusual world map in a butterfly shape, showing the continents arranged in eight connected lobes"
                         title="The Waterman Butterfly"
                         desc="An exploration of the Waterman Butterfly map projection"
+                        quality="90"
                     />
                     <Card
                         image={measurementPic}
@@ -101,6 +105,7 @@ import mercatorPic from "../assets/mercator.webp";
                         alt="Gerardus Mercator's original 1569 world map"
                         title="Mercator's World Map was useless"
                         desc="An essay about the many errors in Gerardus Mercator's 1569 world map"
+                        quality="10"
                     />
                 </div>
             </div>

@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import spearmintPFP from "../assets/spearmint-pfp.webp";
+import spearmintPFP from "../assets/spearmint-pfp.png";
 ---
 
 <section id="intro">
@@ -26,6 +26,9 @@ import spearmintPFP from "../assets/spearmint-pfp.webp";
             src={spearmintPFP}
             alt="A faceted crystalline spearmint teal surface used as Ethan's profile picture"
             style="background: #d6eddc; border-radius: 999px;"
+            width="384"
+            height="384"
+            quality="80"
         />
     </div>
 </section>
@@ -192,6 +195,7 @@ import spearmintPFP from "../assets/spearmint-pfp.webp";
 
     img#pfp {
         width: 256px;
+        border-radius: 50%;
         max-width: 100%;
         height: auto;
         cursor: pointer;
