@@ -217,8 +217,11 @@ import mercatorPic from "../assets/mercator.webp";
             &:hover {
                 background: var(--color-accent-transparent-15);
                 box-shadow: 0 0 10px var(--color-accent-transparent-40);
-                transform: translateX(0.6rem);
                 text-decoration: none;
+
+                @media (pointer: fine) {
+                    transform: translateX(0.6rem);
+                }
 
                 span {
                     transform: translateX(0.2rem);
