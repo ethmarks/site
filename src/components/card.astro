@@ -93,13 +93,14 @@ if (image.fsPath && !transparent) {
             transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        &:hover {
-            transform: translateY(-3px) scale(0.99);
+        &:hover,
+        &.centeredInView {
             box-shadow: var(--shadow-standard-hover);
             border-color: var(--color-accent-transparent-30);
             text-decoration: none;
 
             @media (pointer: fine) {
+                transform: translateY(-3px) scale(0.99);
                 .card-img-wrapper {
                     clip-path: inset(-16px round var(--radius-lg));
                 }
@@ -108,10 +109,14 @@ if (image.fsPath && !transparent) {
                     transform: scale(1.12) translateY(-8px);
                     border-radius: var(--radius-lg);
                 }
+
+                .card-image {
+                    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+                }
             }
 
-            .card-image {
-                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+            @media (pointer: coarse) {
+                transform: translateY(-3px) scale(1.03);
             }
 
             h4 {
@@ -124,3 +129,41 @@ if (image.fsPath && !transparent) {
         }
     }
 </style>
+
+<script>
+    function isMobile() {
+        return (
+            window.innerWidth <= 768 &&
+            window.matchMedia("(pointer: coarse)").matches
+        );
+    }
+
+    function updateActiveCard() {
+        if (!isMobile()) return;
+
+        const cards = document.querySelectorAll(".card");
+        if (!cards.length) return;
+
+        const viewportCenter = window.innerHeight / 2;
+
+        cards.forEach((card) => {
+            // checks if viewport's exact center is inside the card
+            const cardBounds = card.getBoundingClientRect();
+            const intersects =
+                cardBounds.top <= viewportCenter &&
+                cardBounds.bottom >= viewportCenter;
+            card.classList.toggle("centeredInView", intersects);
+        });
+    }
+
+    function initCardScroll() {
+        if (!isMobile()) return;
+
+        updateActiveCard();
+        window.addEventListener("scroll", updateActiveCard);
+        window.addEventListener("resize", updateActiveCard);
+    }
+
+    initCardScroll();
+    document.addEventListener("astro:after-swap", initCardScroll);
+</script>
