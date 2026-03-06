@@ -220,6 +220,32 @@ import spearmintPFP from "../assets/spearmint-pfp.png";
         }
     }
 
+    /* This prevents FOUC and has a decent no-JS fallback.
+
+       With JS disabled, the animation plays normally without any interference.
+
+       With JS enabled, the fallback animation briefly starts to play, but as
+       long as the shimmer script executes in less than 0.4s, the text will
+       remain invisible until the script injects .text-shimmer-word children,
+       disabling the animation and immediately triggering the shimmer effect.
+    */
+    @media (prefers-reduced-motion: no-preference) {
+        .text-shimmer {
+            animation: shimmerTextEntranceFallback 0.6s 0.4s
+                cubic-bezier(0.4, 0, 0.2, 1) both;
+        }
+        .text-shimmer:has(.text-shimmer-word) {
+            animation: none !important;
+        }
+    }
+
+    @keyframes shimmerTextEntranceFallback {
+        from {
+            opacity: 0;
+            filter: blur(2px);
+        }
+    }
+
     @keyframes pfpEntrance {
         to {
             opacity: 1;
